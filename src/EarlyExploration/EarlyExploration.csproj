@@ -35,6 +35,7 @@
     <AssemblyMetadata Include="ModManager.GameVersion" Value="1.1.19611" />
     <AssemblyMetadata Include="ModManager.Settings" Value="Live" />
     <AssemblyMetadata Include="ModManager.GitHub" Value="AnExiledDev/SurvivalLog-EarlyExploration" />
+    <AssemblyMetadata Include="ModManager.NexusId" Value="96" />
     <AssemblyMetadata Include="ModManager.Changelog" Value="https://github.com/AnExiledDev/SurvivalLog-EarlyExploration/blob/main/CHANGELOG.md" />
   </ItemGroup>
 
