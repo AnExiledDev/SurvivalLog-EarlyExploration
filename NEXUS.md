@@ -1,5 +1,5 @@
 Name: Early Exploration
-Summary: Opens every exploration zone after the disaster from day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Set the day each zone opens, or keep the game rule for any of them. Story locks are lifted too, so you can go before the story sends you. Travel time and trip items work as in the game; nothing changes before the disaster.
+Summary: Opens every exploration zone after the disaster from day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Set the day each zone opens, or keep the game's rule for any of them. Story locks are lifted too, so you can go before the story sends you. Travel time and trip items work as in the game; nothing changes before the disaster.
 
 Description (BBCode):
 Tired of waiting for the story to let you out? Early Exploration opens the places you can explore after the disaster from the very first day, and lets you pick the day each one opens.
@@ -7,7 +7,7 @@ Tired of waiting for the story to let you out? Early Exploration opens the place
 [size=5]Main features[/size]
 [list]
 [*][b]Every zone from day one[/b]: the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open on the exploration map from the first day after the disaster.[/*]
-[*][b]Your own schedule[/b]: each zone has its own setting for the day it opens. A later day than the game's holds that zone shut until then.[/*]
+[*][b]Your own schedule[/b]: each zone has its own setting for the day it opens. Pick a later day than the game's and the zone stays shut until then.[/*]
 [*][b]Keep the game's rule[/b]: set any zone to 0 and it opens the way the game intends.[/*]
 [*][b]Story locks lifted too[/b]: a zone the story would open later is opened on your day, and stays open in your save.[/*]
 [*][b]Trips stay the same[/b]: travel time and the items a trip needs (such as a Noisemaker) work as in the game.[/*]

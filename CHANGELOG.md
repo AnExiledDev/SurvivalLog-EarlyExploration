@@ -2,4 +2,7 @@
 
 ## 0.1.0
 
-First release. Opens the exploration zones after the disaster from day one: the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company. Each zone has its own setting for the day it opens, and 0 keeps the game's own rule for that zone. Made for Survival Log 1.1.19611.
+- First release.
+- After the disaster, the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open from day one.
+- Each zone has a setting for the day it opens. Set it to 0 to keep the game's own rule for that zone.
+- Made for Survival Log 1.1.19611.
