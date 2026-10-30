@@ -32,7 +32,7 @@
     <AssemblyMetadata Include="ModManager.Description" Value="Opens the exploration zones after the disaster from day one: the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company. Set the day each zone opens, or keep the game's own rule for any of them.&#10;灾难发生后，从第一天起就开放各个探索地点：社区检修小屋、残破超市、废弃学校、废弃医院和科技公司。可以设置每个地点开放的天数，也可以让任意地点沿用游戏原本的规则。" />
     <AssemblyMetadata Include="ModManager.Author" Value="AnExiledDev" />
     <AssemblyMetadata Include="ModManager.Category" Value="Gameplay" />
-    <AssemblyMetadata Include="ModManager.GameVersion" Value="1.1.19611" />
+    <AssemblyMetadata Include="ModManager.GameVersion" Value="1.1.20151" />
     <AssemblyMetadata Include="ModManager.Settings" Value="Live" />
     <AssemblyMetadata Include="ModManager.GitHub" Value="AnExiledDev/SurvivalLog-EarlyExploration" />
     <AssemblyMetadata Include="ModManager.NexusId" Value="96" />

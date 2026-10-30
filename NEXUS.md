@@ -12,6 +12,7 @@ Tired of waiting for the story to let you out? Early Exploration opens the place
 [*][b]Your own schedule[/b]: each zone has its own setting for the day it opens. Pick a later day than the game's and the zone stays shut until then.[/*]
 [*][b]Keep the game's rule[/b]: set any zone to 0 and it opens the way the game intends.[/*]
 [*][b]Story locks lifted too[/b]: a zone the story would open later is opened on your day, and stays open in your save.[/*]
+[*][b]Out the door early too[/b]: the game only lets you leave the shelter after its "Exploration Tool" story event on day 7, where you learn to make a Noisemaker. That event now starts on the first day any zone opens, so you can make one and head out.[/*]
 [*][b]Trips stay the same[/b]: travel time and the items a trip needs (such as a Noisemaker) work as in the game.[/*]
 [/list]
 Before the disaster nothing changes. Endless and challenge runs keep the game's own rules.
@@ -30,7 +31,7 @@ Every setting is explained in English and Chinese.
 
 [size=5]Requirements[/size]
 [list]
-[*]Survival Log 1.1.19611. A game update can break it until the mod is updated.[/*]
+[*]Survival Log 1.1.20151. A game update can break it until the mod is updated.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]. Install it first.[/*]
 [*]Optional: [url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.4.0 or newer. With it, settings changed on the Mod Manager's Mods screen take effect without restarting the game. Without it, they take effect at the next game start.[/*]
 [/list]
@@ -68,6 +69,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-EarlyExpl
 [*][b]自定开放天数[/b]：每个地点都有单独的开放天数设置。设得比游戏原本更晚，该地点会一直关闭到那一天。[/*]
 [*][b]沿用游戏规则[/b]：任意地点设为 0，就按游戏原本的方式开放。[/*]
 [*][b]同时解除剧情锁定[/b]：原本要等剧情推进才开放的地点，会在你设定的那天开放，并保留在存档中。[/*]
+[*][b]提前出门[/b]：原版要到第 7 天的「探索工具」剧情事件学会做叮当罐子后才能出门。现在任一区域开放的第一天就会触发这个事件，做好叮当罐子就能出门。[/*]
 [*][b]出行条件不变[/b]：路程时间和出发所需的物品（例如叮当罐子）与原版相同。[/*]
 [/list]
 灾难发生前一切照旧。无尽模式和挑战模式沿用游戏原本的规则。
@@ -85,7 +87,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-EarlyExpl
 
 [size=5]前置要求[/size]
 [list]
-[*]Survival Log 1.1.19611。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
+[*]Survival Log 1.1.20151。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]，请先安装。[/*]
 [*]可选：[url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.4.0 或更新版本。装了它，在 Mod Manager 的「模组」界面改动的设置无需重启游戏即可生效；没装的话，改动在下次启动游戏时生效。[/*]
 [/list]
