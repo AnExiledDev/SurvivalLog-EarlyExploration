@@ -88,8 +88,9 @@ public sealed class ZoneOpener : MonoBehaviour
     }
 
     /// <summary>
-    /// Starts the game's Noisemaker event on the earliest open day, so the front door offers a trip. Its day condition
-    /// is lowered only for the call and put straight back, so no other run sees the change.
+    /// Starts the game's Noisemaker event on the earliest open day, so the front door offers a trip. Each character has
+    /// its own copy and the game refuses the others, so each is tried until one starts. Its day condition is lowered
+    /// only for the call and put straight back, so no other run sees the change.
     /// </summary>
     private void StartExploreEvent(Run run, ConfigManager configs)
     {
@@ -99,49 +100,72 @@ public sealed class ZoneOpener : MonoBehaviour
 
         if (now < _nextStartAt) return;
 
-        if (configs._Config_Event_Dict is not { } eventTable || !eventTable.TryGetValue(ExploreStart.EventId, out var gameEvent) || gameEvent == null)
+        if (configs._Config_Event_Dict is not { } eventTable || events._Configs_k__BackingField is not { } setups) return;
+
+        var copies = new List<(int Id, int GameDay, DynamicEventConfig Setup)>();
+        var hasFired = false;
+
+        foreach (var id in ExploreStart.EventIds)
         {
-            ReportOnce("missing event", $"the Noisemaker event ({ExploreStart.EventId}) is not in the game's tables, so exploring unlocks the game's way", isError: true);
+            if (events.HasEventFired(id)) hasFired = true;
+
+            if (eventTable.TryGetValue(id, out var row) && row != null && setups.TryGetValue(id, out var setup) && setup != null) copies.Add((id, row._DataMin_k__BackingField, setup));
+        }
+
+        if (copies.Count == 0)
+        {
+            ReportOnce("missing event", $"none of the Noisemaker events ({string.Join(", ", ExploreStart.EventIds)}) is set up in this run, so exploring unlocks the game's way", isError: true);
 
             return;
         }
 
         var earliest = ExploreStart.EarliestOpenDay(OpenDays.Values);
         var clockDay = clock.GetDay();
+        var isAfterDisaster = clock.WorldStateType != WorldStateType.PreDisaster;
+        var canExplore = tags.HasTag(ExploreStart.CanExploreTag);
+        var tried = false;
 
-        if (!ExploreStart.ShouldStart(earliest, gameEvent._DataMin_k__BackingField, clock.WorldStateType != WorldStateType.PreDisaster, clockDay, tags.HasTag(ExploreStart.CanExploreTag), events.HasEventFired(ExploreStart.EventId))) return;
-
-        _nextStartAt = now + RetrySeconds;
-
-        if (events._Configs_k__BackingField is not { } table || !table.TryGetValue(ExploreStart.EventId, out var config) || config?._DynamicConditions_k__BackingField is not { } conditions)
+        foreach (var (id, gameDay, setup) in copies)
         {
-            ReportOnce("missing event config", $"the Noisemaker event ({ExploreStart.EventId}) has no event setup in this run, so exploring unlocks the game's way", isError: true);
+            if (!ExploreStart.ShouldStart(earliest, gameDay, isAfterDisaster, clockDay, canExplore, hasFired)) continue;
+
+            tried = true;
+
+            if (!TryStart(events, id, setup, clockDay)) continue;
+
+            Log?.Write($"day {clockDay + 1}: started the Noisemaker event ({id}), so the front door offers a trip once one is made");
 
             return;
         }
 
+        if (!tried) return;
+
+        _nextStartAt = now + RetrySeconds;
+        ReportOnce($"event refused {clockDay}", $"day {clockDay + 1}: the game did not start a Noisemaker event yet; trying again every {RetrySeconds:0} seconds", isError: false);
+    }
+
+    private static bool TryStart(DynamicEventManager events, int id, DynamicEventConfig setup, int clockDay)
+    {
         var dayChecks = new List<(DataCheckCondition Check, int Was)>();
 
-        for (var i = 0; i < conditions.Count; i++)
+        if (setup._DynamicConditions_k__BackingField is { } conditions)
         {
-            if (conditions[i]?.TryCast<DataCheckCondition>() is { } check) dayChecks.Add((check, check._DataMin_k__BackingField));
+            for (var i = 0; i < conditions.Count; i++)
+            {
+                if (conditions[i]?.TryCast<DataCheckCondition>() is { } check) dayChecks.Add((check, check._DataMin_k__BackingField));
+            }
         }
-
-        bool started;
 
         try
         {
             foreach (var (check, _) in dayChecks) check._DataMin_k__BackingField = clockDay;
 
-            started = events.TryTriggerEventImmediately(ExploreStart.EventId, true);
+            return events.TryTriggerEventImmediately(id, true);
         }
         finally
         {
             foreach (var (check, was) in dayChecks) check._DataMin_k__BackingField = was;
         }
-
-        if (started) Log?.Write($"day {clockDay + 1}: started the Noisemaker event, so the front door offers a trip once one is made");
-        else ReportOnce("event refused", $"day {clockDay + 1}: the game did not start the Noisemaker event yet; trying again every {RetrySeconds:0} seconds", isError: false);
     }
 
     private void SetDayGate(Zone zone, Config_ConditionSet condition, int openDay)

@@ -5,13 +5,19 @@ namespace EarlyExploration.Tests;
 
 public class ExploreStartTests
 {
-    // The game plays the Noisemaker event on shown day 7.
-    private const int GameDay = 7;
+    // The game plays the Noisemaker event on shown day 8.
+    private const int GameDay = 8;
 
     [Fact]
     public void The_earliest_set_day_wins_and_game_rule_zones_are_ignored()
     {
         Assert.Equal(3, ExploreStart.EarliestOpenDay(new[] { 0, 5, 3, 0, 9 }));
+    }
+
+    [Fact]
+    public void Every_characters_own_event_is_tried_before_the_shared_copy()
+    {
+        Assert.Equal(new[] { 40016, 52016, 62016, 10350 }, ExploreStart.EventIds);
     }
 
     [Fact]
