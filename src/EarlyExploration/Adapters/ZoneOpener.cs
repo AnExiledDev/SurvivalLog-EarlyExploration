@@ -14,8 +14,9 @@ namespace EarlyExploration.Adapters;
 /// load after the plugin and a reload brings back the game's values. The story lock is a tag in the run's TagManager
 /// (the map point's UnlockTag and the condition set's EventTag); on the open day the missing ones are added, the same
 /// way the story event would, and they are saved with the run. The way out is the game's Noisemaker event, which
-/// gives the front door its trip option; it is started on the earliest open day (see ExploreStart). Endless,
-/// challenge and tutorial runs get the game's own day locks back.
+/// gives the front door its trip option; it is started on the earliest open day (see ExploreStart), along with the
+/// workbench repair a Noisemaker needs (see WorkbenchStart). Endless, challenge and tutorial runs get the game's own
+/// day locks back.
 /// </summary>
 public sealed class ZoneOpener : MonoBehaviour
 {
@@ -84,7 +85,38 @@ public sealed class ZoneOpener : MonoBehaviour
             if (run is { Tags: { } tags, Clock: { } clock } && ZonePlan.IsOpenDay(openDay, clock.WorldStateType != WorldStateType.PreDisaster, clock.GetDay())) LiftStoryLock(zone, tags, mapPoint, condition);
         }
 
-        if (run.Kind == RunKind.Story) StartExploreEvent(run, configs!);
+        if (run.Kind != RunKind.Story) return;
+
+        StartWorkbenchRepair(run);
+        StartExploreEvent(run, configs!);
+    }
+
+    /// <summary>
+    /// Gives the workbench manual's reward on the earliest open day, so the workbench can be repaired and a
+    /// Noisemaker made (see WorkbenchStart). The reward adds WorkDeskBook first thing, so it runs once per run.
+    /// </summary>
+    private void StartWorkbenchRepair(Run run)
+    {
+        if (run is not { Tags: { } tags, Clock: { } clock, Rewards: { } rewards }) return;
+
+        var earliest = ExploreStart.EarliestOpenDay(OpenDays.Values);
+        var clockDay = clock.GetDay();
+        var isAfterDisaster = clock.WorldStateType != WorldStateType.PreDisaster;
+        var hasManual = tags.HasTag(WorkbenchStart.ManualTag);
+        var isFixed = tags.HasTag(WorkbenchStart.FixedTag);
+
+        if (!WorkbenchStart.ShouldStart(earliest, isAfterDisaster, clockDay, hasManual, isFixed)) return;
+
+        rewards.ExecuteRewardSet(WorkbenchStart.ManualFoundRewardSetId, 0, 1f, 1f, 1f, 1f, false, false, 0, false);
+
+        if (tags.HasTag(WorkbenchStart.ManualTag))
+        {
+            Log?.Write($"day {clockDay + 1}: gave the workbench manual's reward, so the workbench can be repaired and a Noisemaker made");
+
+            return;
+        }
+
+        ReportOnce("manual reward refused", $"the workbench manual's reward ({WorkbenchStart.ManualFoundRewardSetId}) did not add {WorkbenchStart.ManualTag}, so the workbench unlocks the game's way", isError: true);
     }
 
     /// <summary>
@@ -213,7 +245,7 @@ public sealed class ZoneOpener : MonoBehaviour
         Other,
     }
 
-    private readonly record struct Run(RunKind Kind, TagManager? Tags = null, GameTimeManager? Clock = null, DynamicEventManager? Events = null);
+    private readonly record struct Run(RunKind Kind, TagManager? Tags = null, GameTimeManager? Clock = null, DynamicEventManager? Events = null, RewardSetManager? Rewards = null);
 
     private static Run CurrentRun()
     {
@@ -230,7 +262,7 @@ public sealed class ZoneOpener : MonoBehaviour
         var tags = world._TagManager;
         var clock = world._GameTimeManager;
 
-        return tags == null || clock == null ? new Run(RunKind.Loading) : new Run(RunKind.Story, tags, clock, world._DynamicEventManager);
+        return tags == null || clock == null ? new Run(RunKind.Loading) : new Run(RunKind.Story, tags, clock, world._DynamicEventManager, world._RewardSetManager);
     }
 
     private void ReportOnce(string key, string message, bool isError)

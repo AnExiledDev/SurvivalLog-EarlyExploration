@@ -10,7 +10,7 @@ In Survival Log the places you can explore after the disaster open slowly: the H
 - **Your own schedule**: each zone has its own setting for the day it opens. A later day than the game's holds that zone shut until then.
 - **Keep the game's rule**: set any zone to 0 and it opens the way the game intends.
 - **Story locks lifted too**: a zone the story would open later is opened on your day, the same way the story would open it, so it stays open in your save.
-- **Out the door early too**: the game only lets you leave the shelter after its "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens, so you can make one and head out.
+- **Out the door early too**: the game only lets you leave the shelter after its "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens, and so does the "Repair Workbench" event a Noisemaker needs (as if you had found the workbench manual), so you can repair the workbench, make one and head out.
 - **Trips stay the same**: travel time and the items a trip needs (such as a Noisemaker) work as in the game.
 
 Before the disaster nothing changes. Endless and challenge runs are left to the game's own rules.
@@ -50,7 +50,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, crea
 
 Built against BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.1 started`, followed by a line listing each zone's open day. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, and `started the Noisemaker event` when the way out is unlocked early. The same lines are in `BepInEx\early-exploration.log`, which survives restarts and trims itself past 1 MB.
+Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.1 started`, followed by a line listing each zone's open day. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, and `started the Noisemaker event` when the way out is unlocked early. The same lines are in `BepInEx\early-exploration.log`, which survives restarts and trims itself past 1 MB.
 
 ## Feedback and bug reports
 
