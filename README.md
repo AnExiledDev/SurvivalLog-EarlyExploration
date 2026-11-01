@@ -50,7 +50,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, crea
 
 Built against BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.1 started`, followed by a line listing each zone's open day. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, and `started the Noisemaker event` when the way out is unlocked early. The same lines are in `BepInEx\early-exploration.log`, which survives restarts and trims itself past 1 MB.
+Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.2 started`, followed by a line listing each zone's open day. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, and `started the Noisemaker event` when the way out is unlocked early. The same lines are in `BepInEx\early-exploration.log`, which survives restarts and trims itself past 1 MB.
 
 ## Feedback and bug reports
 

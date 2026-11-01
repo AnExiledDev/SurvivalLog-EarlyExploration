@@ -4,6 +4,7 @@ using EarlyExploration.Core;
 using GameCore.HotUpdate;
 using GameCore.HotUpdate.Battle;
 using GameCore.HotUpdate.Battle.Logic;
+using Il2CppInterop.Runtime.Attributes;
 using UnityEngine;
 
 namespace EarlyExploration.Adapters;
@@ -200,6 +201,7 @@ public sealed class ZoneOpener : MonoBehaviour
         }
     }
 
+    [HideFromIl2Cpp]
     private void SetDayGate(Zone zone, Config_ConditionSet condition, int openDay)
     {
         var current = condition._SurvivalToDay_k__BackingField;
