@@ -48,4 +48,11 @@ public class WorkbenchStartTests
     {
         Assert.True(WorkbenchStart.ShouldStart(1, isAfterDisaster: true, clockDay: 9, hasManual: false, isFixed: false));
     }
+
+    [Fact]
+    public void A_reward_that_did_not_add_the_manual_tag_is_not_given_again_in_the_same_load()
+    {
+        // Each try grants a survival point and restarts the manual's events, so a refused reward must not repeat every second.
+        Assert.False(WorkbenchStart.ShouldStart(1, isAfterDisaster: true, clockDay: 2, hasManual: false, isFixed: false, triedThisLoad: true));
+    }
 }

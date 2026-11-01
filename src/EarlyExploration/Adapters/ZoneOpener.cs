@@ -31,6 +31,7 @@ public sealed class ZoneOpener : MonoBehaviour
     private readonly HashSet<string> _reported = new();
     private float _nextCheckAt;
     private float _nextStartAt;
+    private bool _manualRewardTried;
 
     public ZoneOpener(IntPtr pointer) : base(pointer)
     {
@@ -64,7 +65,12 @@ public sealed class ZoneOpener : MonoBehaviour
 
         var run = CurrentRun();
 
-        if (run.Kind == RunKind.Loading) return;
+        if (run.Kind == RunKind.Loading)
+        {
+            _manualRewardTried = false;
+
+            return;
+        }
 
         foreach (var zone in Zones.All)
         {
@@ -94,7 +100,7 @@ public sealed class ZoneOpener : MonoBehaviour
 
     /// <summary>
     /// Gives the workbench manual's reward on the earliest open day, so the workbench can be repaired and a
-    /// Noisemaker made (see WorkbenchStart). The reward adds WorkDeskBook first thing, so it runs once per run.
+    /// Noisemaker made (see WorkbenchStart). The reward adds WorkDeskBook first thing, so it runs once per run, and it is tried at most once per load.
     /// </summary>
     private void StartWorkbenchRepair(Run run)
     {
@@ -106,8 +112,9 @@ public sealed class ZoneOpener : MonoBehaviour
         var hasManual = tags.HasTag(WorkbenchStart.ManualTag);
         var isFixed = tags.HasTag(WorkbenchStart.FixedTag);
 
-        if (!WorkbenchStart.ShouldStart(earliest, isAfterDisaster, clockDay, hasManual, isFixed)) return;
+        if (!WorkbenchStart.ShouldStart(earliest, isAfterDisaster, clockDay, hasManual, isFixed, _manualRewardTried)) return;
 
+        _manualRewardTried = true;
         rewards.ExecuteRewardSet(WorkbenchStart.ManualFoundRewardSetId, 0, 1f, 1f, 1f, 1f, false, false, 0, false);
 
         if (tags.HasTag(WorkbenchStart.ManualTag))

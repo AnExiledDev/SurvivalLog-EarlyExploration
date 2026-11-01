@@ -21,11 +21,12 @@ public static class WorkbenchStart
     /// <summary>
     /// Whether to give the manual's reward now. Only on or after the earliest open day, never before the disaster,
     /// and never once the run has the manual or a repaired workbench (the game's own route got there first, or this
-    /// already ran: the tags are saved with the run).
+    /// already ran: the tags are saved with the run). It is given at most once per load, so a reward that fails to add
+    /// the tag is not given again every check (each try grants a survival point and restarts events).
     /// </summary>
-    public static bool ShouldStart(int? earliestOpenDay, bool isAfterDisaster, int clockDay, bool hasManual, bool isFixed)
+    public static bool ShouldStart(int? earliestOpenDay, bool isAfterDisaster, int clockDay, bool hasManual, bool isFixed, bool triedThisLoad = false)
     {
-        if (earliestOpenDay is not { } openDay || hasManual || isFixed) return false;
+        if (earliestOpenDay is not { } openDay || hasManual || isFixed || triedThisLoad) return false;
 
         return ZonePlan.IsOpenDay(openDay, isAfterDisaster, clockDay);
     }
