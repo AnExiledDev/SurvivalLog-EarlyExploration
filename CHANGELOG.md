@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- Clearer wording in the settings and the mod page: a zone set to 0 now reads as opening when it normally does.
+- Made for Survival Log 1.1.20719.
+
 ## 0.1.2
 
 - Removed a harmless warning the mod logged when the game started.
@@ -15,5 +20,5 @@
 
 - First release.
 - After the disaster, the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open from day one.
-- Each zone has a setting for the day it opens. Set it to 0 to keep the game's own rule for that zone.
+- Each zone has a setting for the day it opens. Set it to 0 and the zone opens when it normally does.
 - Made for Survival Log 1.1.19611.

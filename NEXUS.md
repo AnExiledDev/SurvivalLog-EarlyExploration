@@ -1,5 +1,5 @@
 Name: Early Exploration
-Summary: Opens every exploration zone after the disaster from day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Set the day each zone opens, or keep the game's rule for any of them. Story locks are lifted too, so you can go before the story sends you. Travel time and trip items work as in the game; nothing changes before the disaster.
+Summary: Opens every exploration zone after the disaster from day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Set the day each zone opens, or leave any of them to open when it normally does. Story locks are lifted too, so you can go before the story sends you. Travel time and trip items work as in the game; nothing changes before the disaster.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/2-changes-stay.png[/img][/center]
@@ -9,20 +9,20 @@ Tired of waiting for the story to let you out? Early Exploration opens the place
 [size=5]Main features[/size]
 [list]
 [*][b]Every zone from day one[/b]: the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open on the exploration map from the first day after the disaster.[/*]
-[*][b]Your own schedule[/b]: each zone has its own setting for the day it opens. Pick a later day than the game's and the zone stays shut until then.[/*]
-[*][b]Keep the game's rule[/b]: set any zone to 0 and it opens the way the game intends.[/*]
+[*][b]Your own schedule[/b]: each zone has its own setting for the day it opens. Pick a day later than it normally opens and the zone stays shut until then.[/*]
+[*][b]Leave a zone alone[/b]: set it to 0 and it opens when it normally does.[/*]
 [*][b]Story locks lifted too[/b]: a zone the story would open later is opened on your day, and stays open in your save.[/*]
 [*][b]Out the door early too[/b]: the game only lets you leave the shelter after its "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens, and so does the "Repair Workbench" event a Noisemaker needs (as if you had found the workbench manual), so you can repair the workbench, make one and head out.[/*]
 [*][b]Trips stay the same[/b]: travel time and the items a trip needs (such as a Noisemaker) work as in the game.[/*]
 [/list]
-Before the disaster nothing changes. Endless and challenge runs keep the game's own rules.
+Before the disaster nothing changes. Endless and challenge runs aren't touched.
 
 Every setting is explained in English and Chinese.
 
 [size=5]Known issues[/size]
 [list]
 [*]Going to a zone before the story sends you there can mean arriving without what the story would have given you first, such as a key or an access card for a locked door inside. Those doors stay locked until you find what opens them.[/*]
-[*]Setting a zone back to 0 puts back the game's day lock, but a story lock the mod already lifted stays lifted in that save.[/*]
+[*]Setting a zone back to 0 brings back its normal opening day, but a story lock the mod already lifted stays lifted in that save.[/*]
 [*]The Gas Station is not included: the game does not show it in story runs.[/*]
 [/list]
 
@@ -31,7 +31,7 @@ Every setting is explained in English and Chinese.
 
 [size=5]Requirements[/size]
 [list]
-[*]Survival Log 1.1.20151. A game update can break it until the mod is updated.[/*]
+[*]Survival Log 1.1.20719. A game update can break it until the mod is updated.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]. Install it first.[/*]
 [*]Optional: [url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.4.0 or newer. With it, settings changed on the Mod Manager's Mods screen take effect without restarting the game. Without it, they take effect at the next game start.[/*]
 [/list]
@@ -66,20 +66,20 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-EarlyExpl
 [size=5]主要功能[/size]
 [list]
 [*][b]第一天全部开放[/b]：社区检修小屋、残破超市、废弃学校、废弃医院和科技公司，灾难后第一天就在探索地图上开放。[/*]
-[*][b]自定开放天数[/b]：每个地点都有单独的开放天数设置。设得比游戏原本更晚，该地点会一直关闭到那一天。[/*]
-[*][b]沿用游戏规则[/b]：任意地点设为 0，就按游戏原本的方式开放。[/*]
+[*][b]自定开放天数[/b]：每个地点都有单独的开放天数设置。设得比平时开放得更晚，该地点会一直关闭到那一天。[/*]
+[*][b]保持原样[/b]：任意地点设为 0，就和平时一样开放。[/*]
 [*][b]同时解除剧情锁定[/b]：原本要等剧情推进才开放的地点，会在你设定的那天开放，并保留在存档中。[/*]
 [*][b]提前出门[/b]：原版要到第 8 天的「探索工具」剧情事件学会做叮当罐子后才能出门。现在任一区域开放的第一天就会触发这个事件，同时触发做叮当罐子所需的「修理工作台」事件（如同找到了工作台使用手册），修好工作台、做好叮当罐子就能出门。[/*]
 [*][b]出行条件不变[/b]：路程时间和出发所需的物品（例如叮当罐子）与原版相同。[/*]
 [/list]
-灾难发生前一切照旧。无尽模式和挑战模式沿用游戏原本的规则。
+灾难发生前一切照旧。无尽模式和挑战模式不受影响。
 
 每项设置都有中英文说明。
 
 [size=5]已知问题[/size]
 [list]
 [*]在剧情引导之前前往某个地点，可能还没拿到剧情原本会先给你的东西，例如里面某扇锁着的门的钥匙或门禁卡。找到能打开它的东西之前，这些门会一直锁着。[/*]
-[*]把某个地点改回 0 会恢复游戏原本的天数限制，但模组已经解除的剧情锁定在该存档中不会恢复。[/*]
+[*]把某个地点改回 0 会恢复它平时的开放天数，但模组已经解除的剧情锁定在该存档中不会恢复。[/*]
 [*]不包括加油站：游戏的剧情模式中不会显示这个地点。[/*]
 [/list]
 
@@ -87,7 +87,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-EarlyExpl
 
 [size=5]前置要求[/size]
 [list]
-[*]Survival Log 1.1.20151。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
+[*]Survival Log 1.1.20719。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]，请先安装。[/*]
 [*]可选：[url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.4.0 或更新版本。装了它，在 Mod Manager 的「模组」界面改动的设置无需重启游戏即可生效；没装的话，改动在下次启动游戏时生效。[/*]
 [/list]
