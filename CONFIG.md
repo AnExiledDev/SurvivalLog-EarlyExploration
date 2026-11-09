@@ -4,15 +4,15 @@ Settings live in `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, crea
 
 ## Zones
 
-Each setting is the day after the disaster that the zone opens on the exploration map. Days count the way the game shows them: 1 is the first day after the disaster. 0 leaves the zone to open when it normally does. The highest value is 100.
+Each setting is the day after the disaster that the zone opens on the exploration map. Days count the way the game shows them: 1 is the first day after the disaster. 0, the default, leaves the zone to open when it normally does. The highest value is 100.
 
 | Setting | Default | Zone | Normally opens |
 | --- | --- | --- | --- |
-| `HardwareStore` | `1` | Hardware Store | Day 5 |
-| `DesertedSupermarket` | `1` | Deserted Supermarket | Through the story, not before day 5 |
-| `AbandonedSchool` | `1` | Abandoned School | Through the story |
-| `AbandonedHospital` | `1` | Abandoned Hospital | Through the story |
-| `TechCompany` | `1` | Tech Company | Through the story |
+| `HardwareStore` | `0` | Hardware Store | Day 5 |
+| `DesertedSupermarket` | `0` | Deserted Supermarket | Through the story, not before day 5 |
+| `AbandonedSchool` | `0` | Abandoned School | Through the story |
+| `AbandonedHospital` | `0` | Abandoned Hospital | Through the story |
+| `TechCompany` | `0` | Tech Company | Through the story |
 
 A zone the story opens is opened on your day even if the story has not reached it yet. A day later than the zone normally opens holds it shut until that day, even once the story has opened it.
 

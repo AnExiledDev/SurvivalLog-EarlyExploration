@@ -1,14 +1,14 @@
 # Early Exploration
 
-Opens the exploration zones after the disaster from day one. Set the day each zone opens, or leave any of them to open when it normally does.
+Opens the exploration zones after the disaster as early as day one. Out of the box it changes nothing: every zone opens when it normally does until you set its day (`1` for the first day after the disaster).
 
-In Survival Log the places you can explore after the disaster open slowly: the Hardware Store on day 5, the others only once the story gets there. Early Exploration opens them all on the first day after the disaster by default, and gives each zone its own setting so you can pick the day it opens instead.
+In Survival Log the places you can explore after the disaster open slowly: the Hardware Store on day 5, the others only once the story gets there. Early Exploration gives each zone its own setting so you can pick the day it opens, down to the first day after the disaster.
 
 ## Features
 
-- **Every zone from day one**: the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open on the exploration map from the first day after the disaster.
+- **Every zone from day one**: set them to 1 and the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open on the exploration map from the first day after the disaster.
 - **Your own schedule**: each zone has its own setting for the day it opens. Pick a day later than it normally opens and the zone stays shut until then.
-- **Leave a zone alone**: set it to 0 and it opens when it normally does.
+- **Leave a zone alone**: 0, the default, and it opens when it normally does.
 - **Story locks lifted too**: a zone the story would open later is opened on your day, the same way the story would open it, so it stays open in your save.
 - **Out the door early too**: the game only lets you leave the shelter after its "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens, and so does the "Repair Workbench" event a Noisemaker needs (as if you had found the workbench manual), so you can repair the workbench, make one and head out.
 - **Trips stay the same**: travel time and the items a trip needs (such as a Noisemaker) work as in the game.

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4
+
+- A new install now leaves every zone to open when it normally does (`0`). Set a zone to `1` to open it on the first day after the disaster, as the old default did. Settings you already saved are kept.
+- Made for Survival Log 1.1.20719.
+
 ## 0.1.3
 
 - Clearer wording in the settings and the mod page: a zone set to 0 now reads as opening when it normally does.

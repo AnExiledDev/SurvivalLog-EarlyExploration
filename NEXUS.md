@@ -1,16 +1,18 @@
 Name: Early Exploration
-Summary: Opens every exploration zone after the disaster from day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Set the day each zone opens, or leave any of them to open when it normally does. Story locks are lifted too, so you can go before the story sends you. Travel time and trip items work as in the game; nothing changes before the disaster.
+Summary: Choose the day each exploration zone opens after the disaster, as early as day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Every zone opens when it normally does until you set its day. Story locks are lifted on your day, so you can go before the story sends you. Travel time and trip items work as in the game.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/2-changes-stay.png[/img][/center]
 
-Tired of waiting for the story to let you out? Early Exploration opens the places you can explore after the disaster from the very first day, and lets you pick the day each one opens.
+Tired of waiting for the story to let you out? Early Exploration lets you pick the day each place you can explore after the disaster opens, down to the very first day.
+
+Out of the box it changes nothing: every zone opens when it normally does until you set its day to 1 or later, on the Mod Manager's Mods screen or in the config.
 
 [size=5]Main features[/size]
 [list]
-[*][b]Every zone from day one[/b]: the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open on the exploration map from the first day after the disaster.[/*]
+[*][b]Every zone from day one[/b]: set them to 1 and the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open on the exploration map from the first day after the disaster.[/*]
 [*][b]Your own schedule[/b]: each zone has its own setting for the day it opens. Pick a day later than it normally opens and the zone stays shut until then.[/*]
-[*][b]Leave a zone alone[/b]: set it to 0 and it opens when it normally does.[/*]
+[*][b]Leave a zone alone[/b]: 0, the default, and it opens when it normally does.[/*]
 [*][b]Story locks lifted too[/b]: a zone the story would open later is opened on your day, and stays open in your save.[/*]
 [*][b]Out the door early too[/b]: the game only lets you leave the shelter after its "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens, and so does the "Repair Workbench" event a Noisemaker needs (as if you had found the workbench manual), so you can repair the workbench, make one and head out.[/*]
 [*][b]Trips stay the same[/b]: travel time and the items a trip needs (such as a Noisemaker) work as in the game.[/*]
@@ -62,13 +64,15 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-EarlyExpl
 [line]
 [size=5]简体中文[/size]
 
-不想再等剧情放你出门？Early Exploration 让灾难之后的各个探索地点从第一天起就开放，每个地点开放的天数也可以自己设定。
+不想再等剧情放你出门？Early Exploration 让你自己设定灾难之后各个探索地点开放的天数，最早可以是第一天。
+
+默认不做任何改动：在 Mod Manager 的「模组」界面或配置里把某个地点设为 1 或更大的天数之前，每个地点都和平时一样开放。
 
 [size=5]主要功能[/size]
 [list]
-[*][b]第一天全部开放[/b]：社区检修小屋、残破超市、废弃学校、废弃医院和科技公司，灾难后第一天就在探索地图上开放。[/*]
+[*][b]第一天全部开放[/b]：设为 1 后，社区检修小屋、残破超市、废弃学校、废弃医院和科技公司，灾难后第一天就在探索地图上开放。[/*]
 [*][b]自定开放天数[/b]：每个地点都有单独的开放天数设置。设得比平时开放得更晚，该地点会一直关闭到那一天。[/*]
-[*][b]保持原样[/b]：任意地点设为 0，就和平时一样开放。[/*]
+[*][b]保持原样[/b]：设为 0（默认），就和平时一样开放。[/*]
 [*][b]同时解除剧情锁定[/b]：原本要等剧情推进才开放的地点，会在你设定的那天开放，并保留在存档中。[/*]
 [*][b]提前出门[/b]：原版要到第 8 天的「探索工具」剧情事件学会做叮当罐子后才能出门。现在任一区域开放的第一天就会触发这个事件，同时触发做叮当罐子所需的「修理工作台」事件（如同找到了工作台使用手册），修好工作台、做好叮当罐子就能出门。[/*]
 [*][b]出行条件不变[/b]：路程时间和出发所需的物品（例如叮当罐子）与原版相同。[/*]

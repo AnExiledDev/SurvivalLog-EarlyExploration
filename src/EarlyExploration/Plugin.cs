@@ -14,7 +14,7 @@ namespace EarlyExploration;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.earlyexploration";
-    private const string Version = "0.1.3";
+    private const string Version = "0.1.4";
 
     public override void Load()
     {
@@ -33,9 +33,9 @@ public sealed class Plugin : BasePlugin
     }
 
     private ConfigEntry<int> BindOpenDay(Zone zone) =>
-        Config.Bind("Zones", zone.Key, 1, new ConfigDescription(
-            $"The day after the disaster the {zone.English} opens on the exploration map: 1 is the first day. 0 leaves it to open when it normally does ({zone.GameRule}). Opening it early also lifts the story lock, so you can go before the story sends you. Anything else a trip needs, such as items to bring, still applies.\n" +
-            $"灾难发生后，「{zone.Chinese}」在探索地图上开放的天数：1 表示第一天。设为 0 则保持原样，和平时一样开放（{zone.GameRuleChinese}）。提前开放时也会解除剧情锁定，不必等剧情引导就能前往。出发所需的其他条件（例如需要携带的物品）照常生效。",
+        Config.Bind("Zones", zone.Key, ZonePlan.GameRule, new ConfigDescription(
+            $"The day after the disaster the {zone.English} opens on the exploration map: 1 is the first day. 0, the default, leaves it to open when it normally does ({zone.GameRule}). Opening it early also lifts the story lock, so you can go before the story sends you. Anything else a trip needs, such as items to bring, still applies.\n" +
+            $"灾难发生后，「{zone.Chinese}」在探索地图上开放的天数：1 表示第一天。设为 0（默认）则保持原样，和平时一样开放（{zone.GameRuleChinese}）。提前开放时也会解除剧情锁定，不必等剧情引导就能前往。出发所需的其他条件（例如需要携带的物品）照常生效。",
             new AcceptableValueRange<int>(ZonePlan.GameRule, ZonePlan.LatestDay)));
 
     private static void UseOpenDays(IReadOnlyDictionary<int, ConfigEntry<int>> openDays, ExploreLog log)
