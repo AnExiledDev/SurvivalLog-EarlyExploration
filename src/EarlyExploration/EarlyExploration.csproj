@@ -29,7 +29,7 @@
   <!-- What the Mod Manager's Mods screen shows about this mod. -->
   <ItemGroup>
     <AssemblyMetadata Include="ModManager.Name" Value="Early Exploration&#10;提前探索" />
-    <AssemblyMetadata Include="ModManager.Description" Value="Set the day each exploration zone opens after the disaster, as early as day one: the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company. Every zone starts on the game's own rule until you set a day.&#10;设置灾难后各个探索地点开放的天数，最早可以是第一天：社区检修小屋、残破超市、废弃学校、废弃医院和科技公司。设置天数之前，每个地点都沿用游戏原本的规则。" />
+    <AssemblyMetadata Include="ModManager.Description" Value="Set the day each exploration zone opens after the disaster, as early as day one: the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company. Every zone starts on the game's rule until you set a day.&#10;设置灾难后各个探索地点开放的天数，最早可以是第一天：社区检修小屋、残破超市、废弃学校、废弃医院和科技公司。设置天数之前，每个地点都沿用游戏原本的规则。" />
     <AssemblyMetadata Include="ModManager.Author" Value="AnExiledDev" />
     <AssemblyMetadata Include="ModManager.Category" Value="Gameplay" />
     <AssemblyMetadata Include="ModManager.GameVersion" Value="1.1.20719" />

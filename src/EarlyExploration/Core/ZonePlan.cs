@@ -11,12 +11,12 @@ namespace EarlyExploration.Core;
 /// </summary>
 public static class ZonePlan
 {
-    /// <summary>The setting that leaves a zone to the game's own rule.</summary>
+    /// <summary>The setting that leaves a zone to the game's rule.</summary>
     public const int GameRule = 0;
 
     public const int LatestDay = 100;
 
-    /// <summary>The SurvivalToDay that opens the zone on <paramref name="openDay"/>; null keeps the game's own value.</summary>
+    /// <summary>The SurvivalToDay that opens the zone on <paramref name="openDay"/>; null keeps the game's value.</summary>
     public static int? DayGate(int openDay) => openDay > GameRule ? openDay - 1 : null;
 
     /// <summary>Whether the zone's story lock should be lifted now. Never before the disaster.</summary>

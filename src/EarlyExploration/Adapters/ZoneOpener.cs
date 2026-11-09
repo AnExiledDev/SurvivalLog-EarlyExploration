@@ -16,7 +16,7 @@ namespace EarlyExploration.Adapters;
 /// (the map point's UnlockTag and the condition set's EventTag); on the open day the missing ones are added, the same
 /// way the story event would, and they are saved with the run. The way out is the game's Noisemaker event, which
 /// gives the front door its trip option; it is started on the earliest open day (see ExploreStart), along with the
-/// workbench repair a Noisemaker needs (see WorkbenchStart). Endless, challenge and tutorial runs get the game's own
+/// workbench repair a Noisemaker needs (see WorkbenchStart). Endless, challenge and tutorial runs get the game's
 /// day locks back.
 /// </summary>
 public sealed class ZoneOpener : MonoBehaviour
@@ -217,7 +217,7 @@ public sealed class ZoneOpener : MonoBehaviour
 
         condition._SurvivalToDay_k__BackingField = target;
         Log?.Write(openDay == ZonePlan.GameRule
-            ? $"{zone.English}: back to the game's own day lock"
+            ? $"{zone.English}: back to the game's day lock"
             : $"{zone.English}: opens on day {openDay}");
     }
 
@@ -250,7 +250,7 @@ public sealed class ZoneOpener : MonoBehaviour
         /// <summary>A story run (casual included): zones open on their set days.</summary>
         Story,
 
-        /// <summary>Endless, challenge or tutorial: the game's own day locks are put back.</summary>
+        /// <summary>Endless, challenge or tutorial: the game's day locks are put back.</summary>
         Other,
     }
 

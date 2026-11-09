@@ -27,8 +27,8 @@ public static class ExploreStart
 
     /// <summary>
     /// Whether to start the event now. Never before the disaster, never once the run can explore or the event has
-    /// fired (any character's copy), and never on the game's own day for it (the game has it queued for 14:00 then). A later day still
-    /// starts it, in case the game's own day went by without it.
+    /// fired (any character's copy), and never on the game's day for it (the game has it queued for 14:00 then). A later day still
+    /// starts it, in case the game's day went by without it.
     /// </summary>
     public static bool ShouldStart(int? earliestOpenDay, int gameDay, bool isAfterDisaster, int clockDay, bool canExplore, bool hasFired)
     {

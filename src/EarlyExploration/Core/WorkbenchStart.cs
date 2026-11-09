@@ -20,7 +20,7 @@ public static class WorkbenchStart
 
     /// <summary>
     /// Whether to give the manual's reward now. Only on or after the earliest open day, never before the disaster,
-    /// and never once the run has the manual or a repaired workbench (the game's own route got there first, or this
+    /// and never once the run has the manual or a repaired workbench (the game's route got there first, or this
     /// already ran: the tags are saved with the run). It is given at most once per load, so a reward that fails to add
     /// the tag is not given again every check (each try grants a survival point and restarts events).
     /// </summary>
