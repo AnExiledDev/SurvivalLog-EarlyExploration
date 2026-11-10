@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5
+
+- Now uses Exiled's Toolkit for its shared parts, so it needs Exiled's Toolkit 0.19.0 or newer.
+- Made for Survival Log 1.1.20719.
+
 ## 0.1.4
 
 - A new install now leaves every zone to open when it normally does (`0`). Set a zone to `1` to open it on the first day after the disaster, as the old default did. Settings you already saved are kept.

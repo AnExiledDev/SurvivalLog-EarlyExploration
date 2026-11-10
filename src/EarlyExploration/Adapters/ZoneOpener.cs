@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using EarlyExploration.Core;
+using ExiledToolkit.Game;
+using ExiledToolkit.Kit;
 using GameCore.HotUpdate;
 using GameCore.HotUpdate.Battle;
 using GameCore.HotUpdate.Battle.Logic;
@@ -25,7 +27,10 @@ public sealed class ZoneOpener : MonoBehaviour
     private const float RetrySeconds = 30f;
 
     internal static IReadOnlyDictionary<int, int> OpenDays = new Dictionary<int, int>();
-    internal static ExploreLog? Log;
+    internal static ModLog? Log;
+
+    /// <summary>An error line, so the Mod Manager can mark the mod as maybe needing an update after a game update.</summary>
+    internal static Action<string>? LogError;
 
     private readonly DayGates _gates = new();
     private readonly HashSet<string> _reported = new();
@@ -278,7 +283,7 @@ public sealed class ZoneOpener : MonoBehaviour
     {
         if (!_reported.Add(key)) return;
 
-        if (isError) Log?.WriteError(message);
+        if (isError) LogError?.Invoke(message);
         else Log?.Write(message);
     }
 }
