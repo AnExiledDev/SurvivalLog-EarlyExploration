@@ -2,7 +2,8 @@ Name: Early Exploration
 Summary: Choose the day each exploration zone opens after the disaster, as early as day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Every zone opens when it normally does until you set its day. Story locks are lifted on your day, so you can go before the story sends you. Travel time and trip items work as in the game.
 
 Description (BBCode):
-[center][img]https://sldb.core-directive.com/media/save/2-changes-stay.png[/img][/center]
+[center][img]https://sldb.core-directive.com/media/save/2-changes-stay.png[/img]
+[img]https://sldb.core-directive.com/media/notice/off.png[/img][/center]
 
 Tired of waiting for the story to let you out? Early Exploration lets you pick the day each place you can explore after the disaster opens, down to the very first day.
 
