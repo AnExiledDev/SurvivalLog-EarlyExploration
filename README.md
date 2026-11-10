@@ -28,7 +28,7 @@ Every config setting is explained in English and Simplified Chinese.
 
 - Survival Log 1.1.20719. Built for this version; a game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
-- **Exiled's Toolkit** 0.19.0 or newer, which applies settings changed on the Mod Manager's Mods screen without restarting the game. Early Exploration does not load without it.
+- **Exiled's Toolkit** 0.20.0 or newer, which applies settings changed on the Mod Manager's Mods screen without restarting the game. Early Exploration does not load without it.
 - Optional: [Mod Manager](https://www.nexusmods.com/survivallog/mods/73). With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.
 
 ## Install
@@ -51,7 +51,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, crea
 
 Built against BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.5 started`, followed by a line listing each zone's open day. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, and `started the Noisemaker event` when the way out is unlocked early. The same lines are in `BepInEx\early-exploration.log`, which survives restarts. Past 1 MB it is moved to `early-exploration.log.1` and started again.
+Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.6 started`, followed by a line listing each zone's open day. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, and `started the Noisemaker event` when the way out is unlocked early. The same lines are in `BepInEx\early-exploration.log`, which survives restarts. Past 1 MB it is moved to `early-exploration.log.1` and started again.
 
 ## Feedback and bug reports
 
@@ -69,7 +69,7 @@ This is a BepInEx 6 IL2CPP plugin. It compiles against BepInEx, the game's IL2CP
 dotnet build src/EarlyExploration -c Release -p:GameDir="C:\path\to\Survival Log" -p:ToolkitDll="C:\path\to\ExiledToolkit.dll"
 ```
 
-`GameDir` is the game folder and `ToolkitDll` is a built `ExiledToolkit.dll` (0.19.0 or newer). The output DLL is at `src\EarlyExploration\bin\Release\EarlyExploration.dll`.
+`GameDir` is the game folder and `ToolkitDll` is a built `ExiledToolkit.dll` (0.20.0 or newer). The output DLL is at `src\EarlyExploration\bin\Release\EarlyExploration.dll`.
 
 The unit tests cover the open-day rules and need nothing from the game:
 

@@ -11,11 +11,11 @@ using ExiledToolkit.Kit;
 namespace EarlyExploration;
 
 [BepInPlugin(Guid, "Early Exploration", Version)]
-[BepInDependency(ExiledToolkit.Plugin.Guid, ">=0.19.0")]
+[BepInDependency(ExiledToolkit.Plugin.Guid, ">=0.20.0")]
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.earlyexploration";
-    private const string Version = "0.1.5";
+    private const string Version = "0.1.6";
 
     /// <summary>Lines add up over many sessions, so past 1 MB the file is moved aside and started again.</summary>
     private const long MaxLogBytes = 1024 * 1024;
@@ -29,11 +29,6 @@ public sealed class Plugin : BasePlugin
         var openDays = Zones.All.ToDictionary(zone => zone.MapPointId, BindOpenDay);
 
         ZoneOpener.Log = log;
-        ZoneOpener.LogError = message =>
-        {
-            Log.LogError(message);
-            log.WriteFileOnly(message);
-        };
         LiveSettings.Watch(() => UseOpenDays(openDays, log), openDays.Values.Cast<ConfigEntryBase>().ToArray());
         AddComponent<ZoneOpener>();
     }

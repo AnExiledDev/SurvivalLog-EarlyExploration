@@ -29,9 +29,6 @@ public sealed class ZoneOpener : MonoBehaviour
     internal static IReadOnlyDictionary<int, int> OpenDays = new Dictionary<int, int>();
     internal static ModLog? Log;
 
-    /// <summary>An error line, so the Mod Manager can mark the mod as maybe needing an update after a game update.</summary>
-    internal static Action<string>? LogError;
-
     private readonly DayGates _gates = new();
     private readonly HashSet<string> _reported = new();
     private float _nextCheckAt;
@@ -283,7 +280,7 @@ public sealed class ZoneOpener : MonoBehaviour
     {
         if (!_reported.Add(key)) return;
 
-        if (isError) LogError?.Invoke(message);
+        if (isError) Log?.WriteError(message);
         else Log?.Write(message);
     }
 }
