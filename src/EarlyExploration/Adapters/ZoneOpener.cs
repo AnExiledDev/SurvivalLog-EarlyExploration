@@ -117,7 +117,7 @@ public sealed class ZoneOpener : MonoBehaviour
         if (!WorkbenchStart.ShouldStart(earliest, isAfterDisaster, clockDay, hasManual, isFixed, _manualRewardTried)) return;
 
         _manualRewardTried = true;
-        rewards.ExecuteRewardSet(WorkbenchStart.ManualFoundRewardSetId, 0, 1f, 1f, 1f, 1f, false, false, 0, false);
+        rewards.ExecuteRewardSet(WorkbenchStart.ManualFoundRewardSetId, 0, 1f, 1f, 1f, 1f, false, false, 0, false, null);
 
         if (tags.HasTag(WorkbenchStart.ManualTag))
         {

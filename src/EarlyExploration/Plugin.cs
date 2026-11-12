@@ -15,7 +15,7 @@ namespace EarlyExploration;
 public sealed class Plugin : BasePlugin
 {
     private const string Guid = "com.dev.survivallog.earlyexploration";
-    private const string Version = "0.1.7";
+    private const string Version = "0.1.8";
 
     /// <summary>Lines add up over many sessions, so past 1 MB the file is moved aside and started again.</summary>
     private const long MaxLogBytes = 1024 * 1024;

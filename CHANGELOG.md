@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.8
+
+- Works with Survival Log 1.1.21271. Starting the workbench repair early gives the workbench manual's reward again.
+- Made for Survival Log 1.1.21271.
+
 ## 0.1.7
 
 - Clearer wording in the settings, on the Mods screen and in the log.
