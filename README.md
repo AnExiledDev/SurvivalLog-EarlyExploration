@@ -1,17 +1,17 @@
 # Early Exploration
 
-Opens the exploration zones after the disaster as early as day one. Out of the box it changes nothing: every zone opens when it normally does until you set its day (`1` for the first day after the disaster).
+Lets you pick the day each exploration zone opens after the disaster, as early as day one. A fresh install changes nothing: every zone opens when it normally does until you set its day (`1` is the first day after the disaster).
 
-In Survival Log the places you can explore after the disaster open slowly: the Hardware Store on day 5, the others only once the story gets there. Early Exploration gives each zone its own setting so you can pick the day it opens, down to the first day after the disaster.
+In Survival Log the places you can explore after the disaster open slowly: the Hardware Store on day 5, the others only once the story gets there. Early Exploration gives each zone its own setting for the day it opens.
 
 ## Features
 
-- **Every zone from day one**: set them to 1 and the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open on the exploration map from the first day after the disaster.
-- **Your own schedule**: each zone has its own setting for the day it opens. Pick a day later than it normally opens and the zone stays shut until then.
-- **Leave a zone alone**: 0, the default, and it opens when it normally does.
-- **Story locks lifted too**: a zone the story would open later is opened on your day, the same way the story would open it, so it stays open in your save.
-- **Out the door early too**: the game only lets you leave the shelter after its "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens, and so does the "Repair Workbench" event a Noisemaker needs (as if you had found the workbench manual), so you can repair the workbench, make one and head out.
-- **Trips stay the same**: travel time and the items a trip needs (such as a Noisemaker) work as in the game.
+- **Every zone from day one**: set them all to 1 and the Hardware Store, Deserted Supermarket, Abandoned School, Abandoned Hospital and Tech Company are open on the exploration map from the first day after the disaster.
+- **A day for each zone**: each zone has its own setting for the day it opens. Pick a day later than it normally opens and the zone stays closed until then.
+- **0 changes nothing**: leave a zone at 0, the default, and it opens when it normally does.
+- **Story locks are lifted**: a zone the story would open later opens on your day instead. It is opened the same way the story would open it, so it stays open in your save.
+- **Leave the shelter early**: normally you can't leave the shelter until the "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens. You need the workbench to make a Noisemaker, so the "Repair Workbench" event starts that day too, as if you had found the workbench manual. Repair the workbench, make a Noisemaker and head out.
+- **Trips don't change**: travel time and the items a trip needs (such as a Noisemaker) are the same as normal.
 
 Before the disaster nothing changes. Endless and challenge runs aren't touched.
 
@@ -22,11 +22,10 @@ Every config setting is explained in English and Simplified Chinese.
 - Going to a zone before the story sends you there can mean arriving without what the story would have given you first, such as a key or an access card for a locked door inside. Those doors stay locked until you find what opens them.
 - Story events that would have opened a zone still play when the story reaches them.
 - Setting a zone back to 0 brings back its normal opening day, but a story lock this mod already lifted stays lifted in that save.
-- The Gas Station is not included: the game does not show it in story runs.
 
 ## Requirements
 
-- Survival Log 1.1.20719. Built for this version; a game update can break it until the mod is updated.
+- Survival Log 1.1.20719. Built for this version. A game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
 - **Exiled's Toolkit** 0.20.0 or newer, which applies settings changed on the Mod Manager's Mods screen without restarting the game. Early Exploration does not load without it.
 - Optional: [Mod Manager](https://www.nexusmods.com/survivallog/mods/73). With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.
@@ -41,7 +40,7 @@ Every config setting is explained in English and Simplified Chinese.
 
 ## Uninstall
 
-Delete `EarlyExploration.dll` from the `BepInEx\plugins` folder. Zones already opened in a save stay open in it; the rest open when they normally do. For a clean slate, also delete `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, `BepInEx\early-exploration.log` and `BepInEx\early-exploration.log.1` if it is there.
+Delete `EarlyExploration.dll` from the `BepInEx\plugins` folder. Zones already opened in a save stay open in it. The rest open when they normally do. For a clean slate, also delete `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, `BepInEx\early-exploration.log` and `BepInEx\early-exploration.log.1` if it is there.
 
 ## Configuration
 
@@ -51,13 +50,13 @@ Settings live in `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, crea
 
 Built against BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.6 started`, followed by a line listing each zone's open day. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, and `started the Noisemaker event` when the way out is unlocked early. The same lines are in `BepInEx\early-exploration.log`, which survives restarts. Past 1 MB it is moved to `early-exploration.log.1` and started again.
+Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.7 started`, followed by a line listing each zone's open day. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, and `started the Noisemaker event` when the way out is unlocked early. The same lines are in `BepInEx\early-exploration.log`, which survives restarts. Once it passes 1 MB, it is renamed to `early-exploration.log.1` and a new one is started.
 
 ## Feedback and bug reports
 
 Found a bug, have an idea, or something feels off? Come say so on the Core Directive Discord: https://discord.gg/trTsyxUFqg . You can also post in the Posts tab of the mod's Nexus Mods page. When reporting a bug, attach `BepInEx\LogOutput.log`, `BepInEx\early-exploration.log` and `BepInEx\early-exploration.log.1` if it is there.
 
-To reach me directly, message `exiled.dev` on Discord; you can find me in the [official Survival Log Discord](https://discord.gg/MZGg4gQAUe). I'm also on X as [@AnExiledDev](https://x.com/AnExiledDev).
+To reach me directly, message `exiled.dev` on Discord. You can find me in the [official Survival Log Discord](https://discord.gg/MZGg4gQAUe). I'm also on X as [@AnExiledDev](https://x.com/AnExiledDev).
 
 A Survival Log wiki with detailed documentation for all of my mods is coming soon.
 

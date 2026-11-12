@@ -4,7 +4,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, crea
 
 ## Zones
 
-Each setting is the day after the disaster that the zone opens on the exploration map. Days count the way the game shows them: 1 is the first day after the disaster. 0, the default, leaves the zone to open when it normally does. The highest value is 100.
+Each setting is the day the zone opens on the exploration map. Days count the way the game shows them: 1 is the first day after the disaster. Leave a setting at 0, the default, and the zone opens when it normally does. The highest value is 100.
 
 | Setting | Default | Zone | Normally opens |
 | --- | --- | --- | --- |
@@ -14,8 +14,8 @@ Each setting is the day after the disaster that the zone opens on the exploratio
 | `AbandonedHospital` | `0` | Abandoned Hospital | Through the story |
 | `TechCompany` | `0` | Tech Company | Through the story |
 
-A zone the story opens is opened on your day even if the story has not reached it yet. A day later than the zone normally opens holds it shut until that day, even once the story has opened it.
+A zone the story opens is opened on your day, even if the story hasn't got there yet. If you pick a day later than the zone normally opens, it stays closed until that day, even after the story has opened it.
 
-Opening a zone does not change what a trip there needs: the travel time and any items you must have with you still apply as in the game.
+Opening a zone early doesn't change what a trip there needs. The travel time and any items you must bring are the same as normal.
 
 Setting a zone back to `0` brings back its normal opening day, but a story lock this mod already lifted in a save stays lifted.

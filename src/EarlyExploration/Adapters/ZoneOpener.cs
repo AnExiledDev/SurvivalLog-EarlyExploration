@@ -53,7 +53,7 @@ public sealed class ZoneOpener : MonoBehaviour
         }
         catch (Exception ex)
         {
-            ReportOnce("failure " + ex.GetType().FullName + ex.Message, "the zone check failed, zones keep the game's rules for now (each distinct failure logged once): " + ex, isError: true);
+            ReportOnce("failure " + ex.GetType().FullName + ex.Message, "the zone check failed, so zones may not open on your days for now (each different failure is logged once): " + ex, isError: true);
         }
     }
 
@@ -80,7 +80,7 @@ public sealed class ZoneOpener : MonoBehaviour
 
             if (!mapPoints.TryGetValue(zone.MapPointId, out var mapPoint) || mapPoint == null)
             {
-                ReportOnce($"missing {zone.Key}", $"{zone.English} (map point {zone.MapPointId}) is not in the game's tables, so it keeps the game's rules", isError: true);
+                ReportOnce($"missing {zone.Key}", $"{zone.English} (map point {zone.MapPointId}) is not in the game's tables, so this mod can't change when it opens", isError: true);
 
                 continue;
             }
@@ -126,7 +126,7 @@ public sealed class ZoneOpener : MonoBehaviour
             return;
         }
 
-        ReportOnce("manual reward refused", $"the workbench manual's reward ({WorkbenchStart.ManualFoundRewardSetId}) did not add {WorkbenchStart.ManualTag}, so the workbench unlocks the game's way", isError: true);
+        ReportOnce("manual reward refused", $"the workbench manual's reward ({WorkbenchStart.ManualFoundRewardSetId}) did not add {WorkbenchStart.ManualTag}, so the workbench can only be repaired the normal way", isError: true);
     }
 
     /// <summary>
@@ -156,7 +156,7 @@ public sealed class ZoneOpener : MonoBehaviour
 
         if (copies.Count == 0)
         {
-            ReportOnce("missing event", $"none of the Noisemaker events ({string.Join(", ", ExploreStart.EventIds)}) is set up in this run, so exploring unlocks the game's way", isError: true);
+            ReportOnce("missing event", $"none of the Noisemaker events ({string.Join(", ", ExploreStart.EventIds)}) is set up in this run, so you can only leave the shelter the normal way", isError: true);
 
             return;
         }
@@ -183,7 +183,7 @@ public sealed class ZoneOpener : MonoBehaviour
         if (!tried) return;
 
         _nextStartAt = now + RetrySeconds;
-        ReportOnce($"event refused {clockDay}", $"day {clockDay + 1}: the game did not start a Noisemaker event yet; trying again every {RetrySeconds:0} seconds", isError: false);
+        ReportOnce($"event refused {clockDay}", $"day {clockDay + 1}: the game has not started a Noisemaker event yet, so it is tried again every {RetrySeconds:0} seconds", isError: false);
     }
 
     private static bool TryStart(DynamicEventManager events, int id, DynamicEventConfig setup, int clockDay)
@@ -219,7 +219,7 @@ public sealed class ZoneOpener : MonoBehaviour
 
         condition._SurvivalToDay_k__BackingField = target;
         Log?.Write(openDay == ZonePlan.GameRule
-            ? $"{zone.English}: back to the game's day lock"
+            ? $"{zone.English}: back to its normal opening day"
             : $"{zone.English}: opens on day {openDay}");
     }
 

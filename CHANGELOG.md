@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.7
+
+- Clearer wording in the settings, on the Mods screen and in the log.
+- Made for Survival Log 1.1.20719.
+
 ## 0.1.6
 
 - Now needs Exiled's Toolkit 0.20.0 or newer.
@@ -7,7 +12,7 @@
 
 ## 0.1.5
 
-- Now uses Exiled's Toolkit for its shared parts, so it needs Exiled's Toolkit 0.19.0 or newer.
+- Some shared code now comes from Exiled's Toolkit, so this mod needs Exiled's Toolkit 0.19.0 or newer.
 - Made for Survival Log 1.1.20719.
 
 ## 0.1.4
@@ -27,8 +32,8 @@
 
 ## 0.1.1
 
-- Fixed: with zones open early you still could not leave the shelter until day 8, because the front door only offers a trip after the "Exploration Tool" story event. That event (make a Noisemaker) now starts on the first day any zone opens.
-- Fixed: a Noisemaker is made at the workbench, which could not be repaired until the workbench manual turned up on day 4 or later. The "Repair Workbench" event now starts on the first day any zone opens too, as if you had found the manual. The repair still takes 2 Scrap Metal, as in the game.
+- Fixed: with zones open early, you still couldn't leave the shelter until day 8. The front door only offers a trip after the "Exploration Tool" story event, where you learn to make a Noisemaker, and that event now starts on the first day any zone opens.
+- Fixed: you couldn't make a Noisemaker early, because it's made at the workbench and the workbench couldn't be repaired until you found its manual on day 4 or later. The "Repair Workbench" event now also starts on the first day any zone opens, as if you had found the manual. The repair still takes 2 Scrap Metal like it normally does.
 - Made for Survival Log 1.1.20151.
 
 ## 0.1.0
