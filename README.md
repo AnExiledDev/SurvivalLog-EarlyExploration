@@ -25,7 +25,7 @@ Every config setting is explained in English and Simplified Chinese.
 
 ## Requirements
 
-- Survival Log 1.1.20719. Built for this version. A game update can break it until the mod is updated.
+- Survival Log 1.1.21271. Built for this version. A game update can break it until the mod is updated.
 - The [BepInEx Pack for Survival Log](https://www.nexusmods.com/survivallog/mods/12), the BepInEx 6 (IL2CPP) build for the game.
 - **Exiled's Toolkit** 0.20.0 or newer, which applies settings changed on the Mod Manager's Mods screen without restarting the game. Early Exploration does not load without it.
 - Optional: [Mod Manager](https://www.nexusmods.com/survivallog/mods/73). With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.
