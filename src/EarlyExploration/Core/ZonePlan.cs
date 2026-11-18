@@ -50,4 +50,26 @@ public sealed class DayGates
 
         return target == current ? null : target;
     }
+
+    /// <summary>Whether <paramref name="value"/> is what the entry held the first time it was seen, which is the game's value.</summary>
+    public bool IsGameValue(long entry, int value) => _gameValues.TryGetValue(entry, out var gameValue) && gameValue == value;
+}
+
+/// <summary>
+/// What Mod Manager was last told about each condition set's SurvivalToDay. A row is reported again only when the
+/// value it holds changes, since reporting the same value again would count as a newer write by this mod.
+/// </summary>
+public sealed class GateReports
+{
+    private readonly Dictionary<int, int> _reported = new();
+
+    /// <summary>True when the row holds something other than what was last reported for it, and notes the new value.</summary>
+    public bool IsChange(int row, int value)
+    {
+        if (_reported.TryGetValue(row, out var last) && last == value) return false;
+
+        _reported[row] = value;
+
+        return true;
+    }
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.9
+
+- Mod Manager's Conflicts tab can now see what Early Exploration changes in the game, like the day each zone opens, so it can show when another mod changes the same things.
+- Now needs Exiled's Toolkit 0.25.0 or newer.
+- Made for Survival Log 1.1.21271.
+
 ## 0.1.8
 
 - Works with Survival Log 1.1.21271. Starting the workbench repair early gives the workbench manual's reward again.

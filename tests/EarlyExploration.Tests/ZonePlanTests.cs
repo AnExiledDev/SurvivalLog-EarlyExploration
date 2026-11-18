@@ -71,6 +71,31 @@ public class ZonePlanTests
     }
 
     [Fact]
+    public void Only_the_value_first_seen_counts_as_the_games_so_a_written_day_is_reported_as_this_mods()
+    {
+        var gates = new DayGates();
+
+        gates.Target(entry: 1, current: 4, openDay: 1);
+
+        Assert.True(gates.IsGameValue(entry: 1, value: 4));
+        Assert.False(gates.IsGameValue(entry: 1, value: 0));
+        Assert.False(gates.IsGameValue(entry: 2, value: 4));
+    }
+
+    [Fact]
+    public void A_day_lock_is_reported_again_only_when_its_value_changes()
+    {
+        // The check runs every second; reporting the same value each time would make this mod look like the latest writer.
+        var reports = new GateReports();
+
+        Assert.True(reports.IsChange(row: 7, value: 0));
+        Assert.False(reports.IsChange(row: 7, value: 0));
+        Assert.True(reports.IsChange(row: 8, value: 0));
+        Assert.True(reports.IsChange(row: 7, value: 4));
+        Assert.False(reports.IsChange(row: 7, value: 4));
+    }
+
+    [Fact]
     public void Every_zone_has_a_distinct_key_and_map_point()
     {
         Assert.Equal(Zones.All.Count, Zones.All.Select(z => z.Key).Distinct().Count());

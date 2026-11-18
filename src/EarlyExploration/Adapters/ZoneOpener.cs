@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using EarlyExploration.Core;
+using ExiledToolkit;
 using ExiledToolkit.Game;
 using ExiledToolkit.Kit;
 using GameCore.HotUpdate;
@@ -19,7 +20,8 @@ namespace EarlyExploration.Adapters;
 /// way the story event would, and they are saved with the run. The way out is the game's Noisemaker event, which
 /// gives the front door its trip option; it is started on the earliest open day (see ExploreStart), along with the
 /// workbench repair a Noisemaker needs (see WorkbenchStart). Endless, challenge and tutorial runs get the game's
-/// day locks back.
+/// day locks back. Each day lock is reported to Mod Manager when it changes, and one back at the game's counts as put
+/// back.
 /// </summary>
 public sealed class ZoneOpener : MonoBehaviour
 {
@@ -30,6 +32,7 @@ public sealed class ZoneOpener : MonoBehaviour
     internal static ModLog? Log;
 
     private readonly DayGates _gates = new();
+    private readonly GateReports _gateReports = new();
     private readonly HashSet<string> _reported = new();
     private float _nextCheckAt;
     private float _nextStartAt;
@@ -87,9 +90,11 @@ public sealed class ZoneOpener : MonoBehaviour
 
             var openDay = run.Kind == RunKind.Story ? setting : ZonePlan.GameRule;
 
-            conditions.TryGetValue(mapPoint._ConditionSetId_k__BackingField, out var condition);
+            var conditionId = mapPoint._ConditionSetId_k__BackingField;
 
-            if (condition != null) SetDayGate(zone, condition, openDay);
+            conditions.TryGetValue(conditionId, out var condition);
+
+            if (condition != null) SetDayGate(zone, conditionId, condition, openDay);
 
             if (run is { Tags: { } tags, Clock: { } clock } && ZonePlan.IsOpenDay(openDay, clock.WorldStateType != WorldStateType.PreDisaster, clock.GetDay())) LiftStoryLock(zone, tags, mapPoint, condition);
         }
@@ -211,16 +216,30 @@ public sealed class ZoneOpener : MonoBehaviour
     }
 
     [HideFromIl2Cpp]
-    private void SetDayGate(Zone zone, Config_ConditionSet condition, int openDay)
+    private void SetDayGate(Zone zone, int conditionId, Config_ConditionSet condition, int openDay)
     {
-        var current = condition._SurvivalToDay_k__BackingField;
+        var entry = condition.Pointer.ToInt64();
+        var held = condition._SurvivalToDay_k__BackingField;
 
-        if (_gates.Target(condition.Pointer.ToInt64(), current, openDay) is not { } target) return;
+        if (_gates.Target(entry, held, openDay) is { } target)
+        {
+            condition._SurvivalToDay_k__BackingField = target;
+            held = target;
+            Log?.Write(openDay == ZonePlan.GameRule
+                ? $"{zone.English}: back to its normal opening day"
+                : $"{zone.English}: opens on day {openDay}");
+        }
 
-        condition._SurvivalToDay_k__BackingField = target;
-        Log?.Write(openDay == ZonePlan.GameRule
-            ? $"{zone.English}: back to its normal opening day"
-            : $"{zone.English}: opens on day {openDay}");
+        if (_gateReports.IsChange(conditionId, held)) ReportDayGate(conditionId, held, _gates.IsGameValue(entry, held));
+    }
+
+    private static void ReportDayGate(int conditionId, int value, bool isGameValue)
+    {
+        const string table = nameof(Config_ConditionSet);
+        const string field = nameof(Config_ConditionSet.SurvivalToDay);
+
+        if (isGameValue) Claims.PutBack(Plugin.Guid, table, conditionId, field);
+        else Claims.Wrote(Plugin.Guid, table, conditionId, field, value);
     }
 
     private static void LiftStoryLock(Zone zone, TagManager tags, Config_MapPoint mapPoint, Config_ConditionSet? condition)
