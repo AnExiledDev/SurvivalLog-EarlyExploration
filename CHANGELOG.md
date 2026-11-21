@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.10
+
+- New setting `MoreThanOneVisitADay`: go to the Tech Company as many times a day as you like. It's off until you turn it on.
+- New setting `NoBadgeInEndless`: in endless mode, the turnstiles in the Tech Company open without a Staff Badge. It's off until you turn it on.
+- Made for Survival Log 1.1.21671.
+
 ## 0.1.9
 
 - Mod Manager's Conflicts tab can now see what Early Exploration changes in the game, like the day each zone opens, so it can show when another mod changes the same things.

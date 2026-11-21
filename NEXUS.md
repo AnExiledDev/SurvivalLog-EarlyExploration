@@ -1,5 +1,5 @@
 Name: Early Exploration
-Summary: Choose the day each exploration zone opens after the disaster, as early as day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Every zone opens when it normally does until you set its day. Story locks are lifted on your day, so you can go before the story sends you. Travel time and trip items don't change. Needs Exiled's Toolkit.
+Summary: Choose the day each exploration zone opens after the disaster, as early as day one: Hardware Store, Supermarket, School, Hospital and Tech Company. Every zone opens when it normally does until you set its day. Story locks are lifted on your day, so you can go before the story sends you. Optional: more Tech Company visits a day. Needs Exiled's Toolkit.
 
 Description (BBCode):
 [center][img]https://sldb.core-directive.com/media/save/2-changes-stay.png[/img]
@@ -17,8 +17,10 @@ A fresh install changes nothing. Every zone opens when it normally does until yo
 [*][b]Story locks are lifted[/b]: a zone the story would open later opens on your day instead, and it stays open in your save.[/*]
 [*][b]Leave the shelter early[/b]: normally you can't leave the shelter until the "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens. You need the workbench to make a Noisemaker, so the "Repair Workbench" event starts that day too, as if you had found the workbench manual. Repair the workbench, make a Noisemaker and head out.[/*]
 [*][b]Trips don't change[/b]: travel time and the items a trip needs (such as a Noisemaker) are the same as normal.[/*]
+[*][b]Tech Company more than once a day[/b] (off by default): turn it on and you can go back to the Tech Company the same day.[/*]
+[*][b]No Staff Badge in endless[/b] (off by default): turn it on and the turnstiles in the Tech Company open without a Staff Badge in endless mode.[/*]
 [/list]
-Before the disaster nothing changes. Endless and challenge runs aren't touched.
+Before the disaster nothing changes. The zone days don't apply to endless and challenge runs. The two Tech Company settings work in every run.
 
 Every setting is explained in English and Chinese.
 
@@ -26,6 +28,7 @@ Every setting is explained in English and Chinese.
 [list]
 [*]Going to a zone before the story sends you there can mean arriving without what the story would have given you first, such as a key or an access card for a locked door inside. Those doors stay locked until you find what opens them.[/*]
 [*]Setting a zone back to 0 brings back its normal opening day, but a story lock the mod already lifted stays lifted in that save.[/*]
+[*]With the Staff Badge setting on, the turnstiles' tip still tells you to swipe a badge.[/*]
 [/list]
 
 [center][img]https://sldb.core-directive.com/img/mods-banner.jpg[/img]
@@ -33,7 +36,7 @@ Every setting is explained in English and Chinese.
 
 [size=5]Requirements[/size]
 [list]
-[*]Survival Log 1.1.21271. A game update can break it until the mod is updated.[/*]
+[*]Survival Log 1.1.21671. A game update can break it until the mod is updated.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]. Install it first.[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.25.0 or newer, which applies settings changed on the Mod Manager's Mods screen without restarting the game. Early Exploration does not load without it.[/*]
 [*]Optional: [url=https://www.nexusmods.com/survivallog/mods/73]Mod Manager[/url]. With it, you can change every setting in game on its Mods screen and see what each one does, without opening the config file.[/*]
@@ -76,8 +79,10 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-EarlyExpl
 [*][b]解除剧情锁定[/b]：原本要等剧情推进才开放的地点，会在你设定的那天开放，并且在存档中保持开放。[/*]
 [*][b]提前出门[/b]：平时要到第 8 天的「探索工具」剧情事件学会做叮当罐子后才能出门。现在任一地点开放的第一天就会触发这个事件。做叮当罐子要用工作台，所以「修理工作台」事件也会同时触发，就像找到了工作台使用手册一样。修好工作台、做好叮当罐子就能出门。[/*]
 [*][b]出行条件不变[/b]：路程时间和出发所需的物品（例如叮当罐子）都和平时一样。[/*]
+[*][b]科技公司一天可去多次[/b]（默认关闭）：开启后，同一天可以再去科技公司。[/*]
+[*][b]无尽模式不用工牌[/b]（默认关闭）：开启后，无尽模式下科技公司的闸机不用工牌也能开启。[/*]
 [/list]
-灾难发生前一切照旧。无尽模式和挑战模式不受影响。
+灾难发生前一切照旧。地点开放天数不影响无尽模式和挑战模式。两项科技公司设置在所有模式下都有效。
 
 每项设置都有中英文说明。
 
@@ -85,13 +90,14 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-EarlyExpl
 [list]
 [*]在剧情引导之前前往某个地点，可能还没拿到剧情原本会先给你的东西，例如里面某扇锁着的门的钥匙或门禁卡。找到能打开它的东西之前，这些门会一直锁着。[/*]
 [*]把某个地点改回 0 会恢复它平时的开放天数，但模组已经解除的剧情锁定在该存档中不会恢复。[/*]
+[*]开启工牌设置后，闸机的提示仍会让你刷工牌。[/*]
 [/list]
 
 [url=https://www.nexusmods.com/survivallog/mods/73]获取 Mod Manager[/url]，在游戏里设置所有模组。[url=https://sldb.core-directive.com/zh/]打开 Survival Log 维基[/url]，物品、配方、地图一查就有。
 
 [size=5]前置要求[/size]
 [list]
-[*]Survival Log 1.1.21271。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
+[*]Survival Log 1.1.21671。游戏更新后模组可能暂时失效，直到模组更新为止。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/12]BepInEx for Survival Log[/url]，请先安装。[/*]
 [*][url=https://www.nexusmods.com/survivallog/mods/61]Exiled's Toolkit[/url] 0.25.0 或更新版本，用于让在 Mod Manager 的「模组」界面改动的设置无需重启游戏即可生效。没有它，Early Exploration 无法加载。[/*]
 [*]可选：[url=https://www.nexusmods.com/survivallog/mods/73]Mod Manager[/url]。装了它，可以在游戏里它的「模组」界面修改每项设置，并看到每项的说明，不用打开配置文件。[/*]

@@ -19,3 +19,14 @@ A zone the story opens is opened on your day, even if the story hasn't got there
 Opening a zone early doesn't change what a trip there needs. The travel time and any items you must bring are the same as normal.
 
 Setting a zone back to `0` brings back its normal opening day, but a story lock this mod already lifted in a save stays lifted.
+
+## TechCompany
+
+Both settings are off by default and work in every run, story and endless alike.
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| `MoreThanOneVisitADay` | `false` | Lets you go to the Tech Company more than once a day. Normally a second trip on the same day is refused with "You have already been here today. Come back tomorrow." |
+| `NoBadgeInEndless` | `false` | In endless mode, the turnstiles in the Tech Company open without a Staff Badge. Story runs still need the badge. |
+
+The turnstiles' tip still tells you to swipe a badge, even when you don't need one.

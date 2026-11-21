@@ -21,7 +21,7 @@ namespace EarlyExploration.Adapters;
 /// gives the front door its trip option; it is started on the earliest open day (see ExploreStart), along with the
 /// workbench repair a Noisemaker needs (see WorkbenchStart). Endless, challenge and tutorial runs get the game's
 /// day locks back. Each day lock is reported to Mod Manager when it changes, and one back at the game's counts as put
-/// back.
+/// back. The same check keeps the Tech Company settings in the tables (see TechCompanyLimits).
 /// </summary>
 public sealed class ZoneOpener : MonoBehaviour
 {
@@ -34,12 +34,14 @@ public sealed class ZoneOpener : MonoBehaviour
     private readonly DayGates _gates = new();
     private readonly GateReports _gateReports = new();
     private readonly HashSet<string> _reported = new();
+    private readonly TechCompanyLimits _techCompany;
     private float _nextCheckAt;
     private float _nextStartAt;
     private bool _manualRewardTried;
 
     public ZoneOpener(IntPtr pointer) : base(pointer)
     {
+        _techCompany = new TechCompanyLimits(ReportOnce);
     }
 
     private void Update()
@@ -68,6 +70,8 @@ public sealed class ZoneOpener : MonoBehaviour
 
         if (mapPoints == null || conditions == null || mapPoints.Count == 0) return;
 
+        _techCompany.Apply(configs!, Log);
+
         var run = CurrentRun();
 
         if (run.Kind == RunKind.Loading)
@@ -76,6 +80,8 @@ public sealed class ZoneOpener : MonoBehaviour
 
             return;
         }
+
+        _techCompany.ApplyToRun(configs!, run.IsEndless, Log);
 
         foreach (var zone in Zones.All)
         {
@@ -275,7 +281,7 @@ public sealed class ZoneOpener : MonoBehaviour
         Other,
     }
 
-    private readonly record struct Run(RunKind Kind, TagManager? Tags = null, GameTimeManager? Clock = null, DynamicEventManager? Events = null, RewardSetManager? Rewards = null);
+    private readonly record struct Run(RunKind Kind, TagManager? Tags = null, GameTimeManager? Clock = null, DynamicEventManager? Events = null, RewardSetManager? Rewards = null, bool IsEndless = false);
 
     private static Run CurrentRun()
     {
@@ -287,7 +293,7 @@ public sealed class ZoneOpener : MonoBehaviour
 
         if (world == null || !world.IsUpdate || save == null) return new Run(RunKind.Loading);
 
-        if (world.GameModeKey != GameMode.Default || save.EndlessActive || save.ChallengeTargetId > 0) return new Run(RunKind.Other);
+        if (world.GameModeKey != GameMode.Default || save.EndlessActive || save.ChallengeTargetId > 0) return new Run(RunKind.Other, IsEndless: save.EndlessActive);
 
         var tags = world._TagManager;
         var clock = world._GameTimeManager;
