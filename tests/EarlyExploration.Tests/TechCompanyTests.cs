@@ -37,9 +37,9 @@ public class TechCompanyTests
     }
 
     [Fact]
-    public void In_endless_with_the_setting_on_the_turnstiles_stop_asking_for_the_badge()
+    public void With_the_setting_on_the_turnstiles_stop_asking_for_the_badge()
     {
-        var items = TechCompany.GateItems(new[] { TechCompany.BadgeItemId }, noBadge: true, isEndless: true);
+        var items = TechCompany.GateItems(new[] { TechCompany.BadgeItemId }, noBadge: true);
 
         Assert.Empty(items);
     }
@@ -47,18 +47,15 @@ public class TechCompanyTests
     [Fact]
     public void Only_the_badge_is_dropped_so_anything_else_the_turnstiles_need_stays()
     {
-        var items = TechCompany.GateItems(new[] { 555, TechCompany.BadgeItemId }, noBadge: true, isEndless: true);
+        var items = TechCompany.GateItems(new[] { 555, TechCompany.BadgeItemId }, noBadge: true);
 
         Assert.Equal(new[] { 555 }, items);
     }
 
-    [Theory]
-    [InlineData(true, false)]
-    [InlineData(false, true)]
-    [InlineData(false, false)]
-    public void Story_runs_and_the_setting_off_keep_the_badge(bool noBadge, bool isEndless)
+    [Fact]
+    public void With_the_setting_off_the_turnstiles_keep_the_badge()
     {
-        var items = TechCompany.GateItems(new[] { TechCompany.BadgeItemId }, noBadge, isEndless);
+        var items = TechCompany.GateItems(new[] { TechCompany.BadgeItemId }, noBadge: false);
 
         Assert.Equal(new[] { TechCompany.BadgeItemId }, items);
     }

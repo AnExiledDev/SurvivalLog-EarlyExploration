@@ -9,7 +9,7 @@ namespace EarlyExploration.Core;
 /// trip is refused ("You have already been here today") when the map id is in GlobalSetting Explore_DailyOnceMaps
 /// (Params3, ids split on ';', "1003" in the game's table) and was entered on this clock day. The game applies it in
 /// story runs and casual endless, not in pure endless. The turnstiles in the lobby (furniture 90113, button 1872) check condition set
-/// 9346, whose BagRequire is the Staff Badge (42047); an empty BagRequire passes.
+/// 9346, whose BagRequire is the Staff Badge (42047); an empty BagRequire passes. Swiping only sets the turnstiles to Open (action 1945); the badge is not used up.
 /// </summary>
 public static class TechCompany
 {
@@ -37,9 +37,9 @@ public static class TechCompany
     /// <summary>Whether the game's list makes the Tech Company once a day, read the way the game reads it.</summary>
     public static bool IsOnceADay(string? gameList) => (gameList ?? "").Split(';').Any(IsTechCompany);
 
-    /// <summary>The turnstiles' item list to keep in the table: the game's, without the badge in an endless run with the setting on.</summary>
-    public static IReadOnlyList<int> GateItems(IReadOnlyList<int> gameItems, bool noBadge, bool isEndless) =>
-        noBadge && isEndless ? gameItems.Where(id => id != BadgeItemId).ToList() : gameItems.ToList();
+    /// <summary>The turnstiles' item list to keep in the table: the game's, without the badge when the setting is on.</summary>
+    public static IReadOnlyList<int> GateItems(IReadOnlyList<int> gameItems, bool noBadge) =>
+        noBadge ? gameItems.Where(id => id != BadgeItemId).ToList() : gameItems.ToList();
 
     private static bool IsTechCompany(string id) =>
         int.TryParse(id.Trim(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var mapId) && mapId == MapPointId;

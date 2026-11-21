@@ -13,7 +13,7 @@ In Survival Log the places you can explore after the disaster open slowly: the H
 - **Leave the shelter early**: normally you can't leave the shelter until the "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens. You need the workbench to make a Noisemaker, so the "Repair Workbench" event starts that day too, as if you had found the workbench manual. Repair the workbench, make a Noisemaker and head out.
 - **Trips don't change**: travel time and the items a trip needs (such as a Noisemaker) are the same as normal.
 - **Tech Company more than once a day** (off by default): turn on `MoreThanOneVisitADay` and you can go back to the Tech Company the same day.
-- **No Staff Badge in endless** (off by default): turn on `NoBadgeInEndless` and the turnstiles in the Tech Company open without a Staff Badge in endless mode.
+- **No Staff Badge** (off by default): turn on `NoBadge` and the turnstiles in the Tech Company open without a Staff Badge.
 
 Before the disaster nothing changes. The zone days don't apply to endless and challenge runs. The two Tech Company settings work in every run.
 
@@ -24,7 +24,7 @@ Every config setting is explained in English and Simplified Chinese.
 - Going to a zone before the story sends you there can mean arriving without what the story would have given you first, such as a key or an access card for a locked door inside. Those doors stay locked until you find what opens them.
 - Story events that would have opened a zone still play when the story reaches them.
 - Setting a zone back to 0 brings back its normal opening day, but a story lock this mod already lifted stays lifted in that save.
-- With `NoBadgeInEndless` on, the turnstiles' tip still tells you to swipe a badge.
+- With `NoBadge` on, the turnstiles' tip still tells you to swipe a badge.
 
 ## Requirements
 
@@ -53,7 +53,7 @@ Settings live in `BepInEx\config\com.dev.survivallog.earlyexploration.cfg`, crea
 
 Built against BepInEx `6.0.0-be.788`.
 
-Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.10 started`, followed by a line listing each zone's open day and a line with the two Tech Company settings. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, `started the Noisemaker event` when the way out is opened early, and a `Tech Company:` line when one of its settings takes effect. The same lines are in `BepInEx\early-exploration.log`, which survives restarts. Once it passes 1 MB, it is renamed to `early-exploration.log.1` and a new one is started.
+Check `BepInEx\LogOutput.log` for `===== Early Exploration 0.1.11 started`, followed by a line listing each zone's open day and a line with the two Tech Company settings. Once a run has loaded, each zone logs the day it opens on, `opened, added ...` when its story lock is lifted, `gave the workbench manual's reward` when the workbench repair is started early, `started the Noisemaker event` when the way out is opened early, and a `Tech Company:` line when one of its settings takes effect. The same lines are in `BepInEx\early-exploration.log`, which survives restarts. Once it passes 1 MB, it is renamed to `early-exploration.log.1` and a new one is started.
 
 ## Feedback and bug reports
 

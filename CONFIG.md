@@ -27,6 +27,6 @@ Both settings are off by default and work in every run, story and endless alike.
 | Setting | Default | What it does |
 | --- | --- | --- |
 | `MoreThanOneVisitADay` | `false` | Lets you go to the Tech Company more than once a day. Normally a second trip on the same day is refused with "You have already been here today. Come back tomorrow." |
-| `NoBadgeInEndless` | `false` | In endless mode, the turnstiles in the Tech Company open without a Staff Badge. Story runs still need the badge. |
+| `NoBadge` | `false` | The turnstiles in the Tech Company open without a Staff Badge. |
 
 The turnstiles' tip still tells you to swipe a badge, even when you don't need one.

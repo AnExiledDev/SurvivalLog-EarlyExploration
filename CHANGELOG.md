@@ -1,9 +1,9 @@
 # Changelog
 
-## 0.1.10
+## 0.1.11
 
 - New setting `MoreThanOneVisitADay`: go to the Tech Company as many times a day as you like. It's off until you turn it on.
-- New setting `NoBadgeInEndless`: in endless mode, the turnstiles in the Tech Company open without a Staff Badge. It's off until you turn it on.
+- New setting `NoBadge`: the turnstiles in the Tech Company open without a Staff Badge, in story and endless runs. It's off until you turn it on.
 - Made for Survival Log 1.1.21671.
 
 ## 0.1.9

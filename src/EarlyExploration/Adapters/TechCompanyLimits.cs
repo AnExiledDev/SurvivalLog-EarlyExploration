@@ -16,7 +16,7 @@ namespace EarlyExploration.Adapters;
 internal sealed class TechCompanyLimits
 {
     internal static bool ManyVisits;
-    internal static bool NoBadgeInEndless;
+    internal static bool NoBadge;
 
     private readonly FirstSeen<string> _gameLists = new();
     private readonly FirstSeen<IReadOnlyList<int>> _gameGateItems = new();
@@ -26,10 +26,11 @@ internal sealed class TechCompanyLimits
 
     public TechCompanyLimits(Action<string, string, bool> reportOnce) => _reportOnce = reportOnce;
 
-    public void Apply(ConfigManager configs, ModLog? log) => KeepDailyOnceList(configs, log);
-
-    /// <summary>The gate only changes once the run is known, so a run still loading keeps what the table holds.</summary>
-    public void ApplyToRun(ConfigManager configs, bool isEndless, ModLog? log) => KeepGateItems(configs, isEndless, log);
+    public void Apply(ConfigManager configs, ModLog? log)
+    {
+        KeepDailyOnceList(configs, log);
+        KeepGateItems(configs, log);
+    }
 
     private void KeepDailyOnceList(ConfigManager configs, ModLog? log)
     {
@@ -65,13 +66,13 @@ internal sealed class TechCompanyLimits
         else Claims.Wrote(Plugin.Guid, nameof(Config_GlobalSetting), TechCompany.DailyOnceKey, field, target);
     }
 
-    private void KeepGateItems(ConfigManager configs, bool isEndless, ModLog? log)
+    private void KeepGateItems(ConfigManager configs, ModLog? log)
     {
         if (configs._Config_ConditionSet_Dict is not { } table) return;
 
         if (!table.TryGetValue(TechCompany.GateConditionSetId, out var entry) || entry == null || entry._BagRequire_k__BackingField is not { } items)
         {
-            if (NoBadgeInEndless) _reportOnce("missing gate", $"the Tech Company turnstiles check (condition set {TechCompany.GateConditionSetId}) is not in the game's tables, so the turnstiles still need the Staff Badge", true);
+            if (NoBadge) _reportOnce("missing gate", $"the Tech Company turnstiles check (condition set {TechCompany.GateConditionSetId}) is not in the game's tables, so the turnstiles still need the Staff Badge", true);
 
             return;
         }
@@ -79,9 +80,9 @@ internal sealed class TechCompanyLimits
         var current = ToList(items);
         var gameItems = _gameGateItems.Remember(entry.Pointer.ToInt64(), current);
 
-        if (NoBadgeInEndless && !gameItems.Contains(TechCompany.BadgeItemId)) _reportOnce("no badge", $"the Tech Company turnstiles do not need the Staff Badge ({TechCompany.BadgeItemId}) in this game version, so there is nothing to change", false);
+        if (NoBadge && !gameItems.Contains(TechCompany.BadgeItemId)) _reportOnce("no badge", $"the Tech Company turnstiles do not need the Staff Badge ({TechCompany.BadgeItemId}) in this game version, so there is nothing to change", false);
 
-        var target = TechCompany.GateItems(gameItems, NoBadgeInEndless, isEndless);
+        var target = TechCompany.GateItems(gameItems, NoBadge);
         var isGameValue = target.SequenceEqual(gameItems);
 
         if (!target.SequenceEqual(current))
@@ -90,7 +91,7 @@ internal sealed class TechCompanyLimits
 
             foreach (var id in target) items.Add(id);
 
-            log?.Write(isGameValue ? "Tech Company: the turnstiles need the Staff Badge again" : "Tech Company: the turnstiles open without the Staff Badge in this endless run");
+            log?.Write(isGameValue ? "Tech Company: the turnstiles need the Staff Badge again" : "Tech Company: the turnstiles open without the Staff Badge");
         }
 
         var reported = string.Join(",", target);

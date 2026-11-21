@@ -18,7 +18,7 @@ A fresh install changes nothing. Every zone opens when it normally does until yo
 [*][b]Leave the shelter early[/b]: normally you can't leave the shelter until the "Exploration Tool" story event on day 8, where you learn to make a Noisemaker. That event now starts on the first day any zone opens. You need the workbench to make a Noisemaker, so the "Repair Workbench" event starts that day too, as if you had found the workbench manual. Repair the workbench, make a Noisemaker and head out.[/*]
 [*][b]Trips don't change[/b]: travel time and the items a trip needs (such as a Noisemaker) are the same as normal.[/*]
 [*][b]Tech Company more than once a day[/b] (off by default): turn it on and you can go back to the Tech Company the same day.[/*]
-[*][b]No Staff Badge in endless[/b] (off by default): turn it on and the turnstiles in the Tech Company open without a Staff Badge in endless mode.[/*]
+[*][b]No Staff Badge[/b] (off by default): turn it on and the turnstiles in the Tech Company open without a Staff Badge.[/*]
 [/list]
 Before the disaster nothing changes. The zone days don't apply to endless and challenge runs. The two Tech Company settings work in every run.
 
@@ -80,7 +80,7 @@ Open source under MIT: [url=https://github.com/AnExiledDev/SurvivalLog-EarlyExpl
 [*][b]提前出门[/b]：平时要到第 8 天的「探索工具」剧情事件学会做叮当罐子后才能出门。现在任一地点开放的第一天就会触发这个事件。做叮当罐子要用工作台，所以「修理工作台」事件也会同时触发，就像找到了工作台使用手册一样。修好工作台、做好叮当罐子就能出门。[/*]
 [*][b]出行条件不变[/b]：路程时间和出发所需的物品（例如叮当罐子）都和平时一样。[/*]
 [*][b]科技公司一天可去多次[/b]（默认关闭）：开启后，同一天可以再去科技公司。[/*]
-[*][b]无尽模式不用工牌[/b]（默认关闭）：开启后，无尽模式下科技公司的闸机不用工牌也能开启。[/*]
+[*][b]不用工牌[/b]（默认关闭）：开启后，科技公司的闸机不用工牌也能开启。[/*]
 [/list]
 灾难发生前一切照旧。地点开放天数不影响无尽模式和挑战模式。两项科技公司设置在所有模式下都有效。
 

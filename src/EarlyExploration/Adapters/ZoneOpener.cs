@@ -81,8 +81,6 @@ public sealed class ZoneOpener : MonoBehaviour
             return;
         }
 
-        _techCompany.ApplyToRun(configs!, run.IsEndless, Log);
-
         foreach (var zone in Zones.All)
         {
             if (!OpenDays.TryGetValue(zone.MapPointId, out var setting)) continue;
@@ -281,7 +279,7 @@ public sealed class ZoneOpener : MonoBehaviour
         Other,
     }
 
-    private readonly record struct Run(RunKind Kind, TagManager? Tags = null, GameTimeManager? Clock = null, DynamicEventManager? Events = null, RewardSetManager? Rewards = null, bool IsEndless = false);
+    private readonly record struct Run(RunKind Kind, TagManager? Tags = null, GameTimeManager? Clock = null, DynamicEventManager? Events = null, RewardSetManager? Rewards = null);
 
     private static Run CurrentRun()
     {
@@ -293,7 +291,7 @@ public sealed class ZoneOpener : MonoBehaviour
 
         if (world == null || !world.IsUpdate || save == null) return new Run(RunKind.Loading);
 
-        if (world.GameModeKey != GameMode.Default || save.EndlessActive || save.ChallengeTargetId > 0) return new Run(RunKind.Other, IsEndless: save.EndlessActive);
+        if (world.GameModeKey != GameMode.Default || save.EndlessActive || save.ChallengeTargetId > 0) return new Run(RunKind.Other);
 
         var tags = world._TagManager;
         var clock = world._GameTimeManager;
